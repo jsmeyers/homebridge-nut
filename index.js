@@ -193,6 +193,7 @@ NutAccessory.prototype = {
 					} else {
 						that.service.setCharacteristic(Characteristic.ContactSensorState,false);
 						that.service.setCharacteristic(EnterpriseTypes.InputVoltageAC, (this.accVars["input.voltage"]));
+						that.service.setCharacteristic(EnterpriseTypes.UPSLoadPercent, (this.accVars["ups.load"]));
 						that.service.setCharacteristic(EnterpriseTypes.OutputVoltageAC, (this.accVars["output.voltage"]));
 						that.service.setCharacteristic(EnterpriseTypes.BatteryVoltageDC, (this.accVars["battery.voltage"]));						
 						
@@ -234,6 +235,7 @@ NutAccessory.prototype = {
 		this.service.addCharacteristic(Characteristic.StatusFault); // Used if unable to connect to Nut Server
 	  	this.service.addCharacteristic(Characteristic.CurrentTemperature);
 	    	this.service.addCharacteristic(EnterpriseTypes.InputVoltageAC);
+	    	this.service.addCharacteristic(EnterpriseTypes.UPSLoadPercent);
 	    	this.service.addCharacteristic(EnterpriseTypes.OutputVoltageAC);
 	    	this.service.addCharacteristic(EnterpriseTypes.BatteryVoltageDC);
 		services.push(this.service);
